@@ -8,7 +8,7 @@ const PORT = process.env.SERVER_PORT || 3000;
 
 const main = async () => {
     try {
-        await sequelize.sync({force: false, alter: true});
+        await sequelize.sync();
         console.log("Conectados a la base de datos...");
         app.listen(PORT, () => {
             console.log("Servidor escuchando en http://localhost:" + PORT);
