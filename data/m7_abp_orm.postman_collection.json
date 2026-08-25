@@ -1,0 +1,757 @@
+{
+  "info": {
+    "_postman_id": "817a04b3-bc25-4ac9-831a-261c31e0e9c5",
+    "name": "m7_abp_orm",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "12060319"
+  },
+  "item": [
+    {
+      "name": "USERS",
+      "item": [
+        {
+          "name": "GET ALL USERS",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/api/users",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CREATE NEW USER",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstName",
+                  "value": "Pedro",
+                  "type": "text",
+                  "uuid": "486a1cb8-1cfc-46d1-a5a0-7e6b186647cf"
+                },
+                {
+                  "key": "lastName",
+                  "value": "Soto",
+                  "type": "text",
+                  "uuid": "22b931d4-e7de-4539-a530-207ad84bb7d6"
+                },
+                {
+                  "key": "rut",
+                  "value": "22.222.222-2",
+                  "type": "text",
+                  "uuid": "8b16a094-7f8f-43dd-ae81-f5cecb536b5b"
+                },
+                {
+                  "key": "email",
+                  "value": "pedro.soto@correo.cl",
+                  "type": "text",
+                  "uuid": "887ce889-d8ca-4e62-905b-47be341d7da9"
+                },
+                {
+                  "key": "password",
+                  "value": "12345678",
+                  "type": "text",
+                  "uuid": "22a08e21-07d5-4f5e-ad76-cf4adb2a5e26"
+                },
+                {
+                  "key": "username",
+                  "value": "pedro.soto",
+                  "type": "text",
+                  "uuid": "d59217fb-6435-4af3-91f1-7372d9b2bd9f"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:3000/api/users",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UPDATE USER BY ID",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstName",
+                  "value": "Pedro",
+                  "type": "text",
+                  "uuid": "486a1cb8-1cfc-46d1-a5a0-7e6b186647cf"
+                },
+                {
+                  "key": "lastName",
+                  "value": "Soto",
+                  "type": "text",
+                  "uuid": "22b931d4-e7de-4539-a530-207ad84bb7d6"
+                },
+                {
+                  "key": "rut",
+                  "value": "22.222.222-2",
+                  "type": "text",
+                  "uuid": "8b16a094-7f8f-43dd-ae81-f5cecb536b5b"
+                },
+                {
+                  "key": "email",
+                  "value": "pedro.soto@correo.cl",
+                  "type": "text",
+                  "uuid": "887ce889-d8ca-4e62-905b-47be341d7da9"
+                },
+                {
+                  "key": "password",
+                  "value": "12345678",
+                  "type": "text",
+                  "uuid": "22a08e21-07d5-4f5e-ad76-cf4adb2a5e26"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:3000/api/users/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE USER BY ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/api/users/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET USER BY ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/api/users/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PRODUCTS",
+      "item": [
+        {
+          "name": "GET ALL PRODUCTS",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/api/products",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CREATE NEW PRODUCT",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Juego de ollas de 8 piezas",
+                  "type": "text",
+                  "uuid": "a2f6be65-ab39-4192-bfa4-8e6db5996099"
+                },
+                {
+                  "key": "description",
+                  "value": "Juego de ollas de teflón",
+                  "type": "text",
+                  "uuid": "787f4a3a-6acd-4a80-803f-3772028f6bc9"
+                },
+                {
+                  "key": "price",
+                  "value": "85000",
+                  "type": "text",
+                  "uuid": "43ca657a-3110-4b6c-89c0-9edd12403139"
+                },
+                {
+                  "key": "stock",
+                  "value": "50",
+                  "type": "text",
+                  "uuid": "24a66598-29d7-4c58-b2b3-c7f7cc41d310"
+                },
+                {
+                  "key": "categoryId",
+                  "value": "2",
+                  "type": "text",
+                  "uuid": "48e1c297-2cfe-4904-803d-0f4083865e27"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:3000/api/products",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UPDATE PRODUCT",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "productName",
+                  "value": "Pera",
+                  "type": "text",
+                  "uuid": "a2f6be65-ab39-4192-bfa4-8e6db5996099"
+                },
+                {
+                  "key": "description",
+                  "value": "descripción de producto 1",
+                  "type": "text",
+                  "uuid": "787f4a3a-6acd-4a80-803f-3772028f6bc9"
+                },
+                {
+                  "key": "price",
+                  "value": "200",
+                  "type": "text",
+                  "uuid": "43ca657a-3110-4b6c-89c0-9edd12403139"
+                },
+                {
+                  "key": "stock",
+                  "value": "25",
+                  "type": "text",
+                  "uuid": "24a66598-29d7-4c58-b2b3-c7f7cc41d310"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:3000/api/products/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE PRODUCT BY ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/api/products/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET PRODUCT BY ID",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "productName",
+                  "value": "Sofa de 2 cuerpos",
+                  "type": "text",
+                  "uuid": "a2f6be65-ab39-4192-bfa4-8e6db5996099"
+                },
+                {
+                  "key": "description",
+                  "value": "Sofa de lino",
+                  "type": "text",
+                  "uuid": "787f4a3a-6acd-4a80-803f-3772028f6bc9"
+                },
+                {
+                  "key": "price",
+                  "value": "750000",
+                  "type": "text",
+                  "uuid": "43ca657a-3110-4b6c-89c0-9edd12403139"
+                },
+                {
+                  "key": "stock",
+                  "value": "25",
+                  "type": "text",
+                  "uuid": "24a66598-29d7-4c58-b2b3-c7f7cc41d310"
+                },
+                {
+                  "key": "categoryId",
+                  "value": "100",
+                  "type": "text",
+                  "uuid": "48e1c297-2cfe-4904-803d-0f4083865e27"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:3000/api/products/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "CATEGORIES",
+      "item": [
+        {
+          "name": "GET ALL CATEGORIES",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "productName",
+                  "value": "Producto 1",
+                  "type": "text",
+                  "uuid": "a2f6be65-ab39-4192-bfa4-8e6db5996099"
+                },
+                {
+                  "key": "description",
+                  "value": "descripción de producto 1",
+                  "type": "text",
+                  "uuid": "787f4a3a-6acd-4a80-803f-3772028f6bc9"
+                },
+                {
+                  "key": "price",
+                  "value": "4500",
+                  "type": "text",
+                  "uuid": "43ca657a-3110-4b6c-89c0-9edd12403139"
+                },
+                {
+                  "key": "stock",
+                  "value": "20",
+                  "type": "text",
+                  "uuid": "24a66598-29d7-4c58-b2b3-c7f7cc41d310"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:3000/api/categories",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET CATEGORY BY ID",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "productName",
+                  "value": "Producto 1",
+                  "type": "text",
+                  "uuid": "a2f6be65-ab39-4192-bfa4-8e6db5996099"
+                },
+                {
+                  "key": "description",
+                  "value": "descripción de producto 1",
+                  "type": "text",
+                  "uuid": "787f4a3a-6acd-4a80-803f-3772028f6bc9"
+                },
+                {
+                  "key": "price",
+                  "value": "4500",
+                  "type": "text",
+                  "uuid": "43ca657a-3110-4b6c-89c0-9edd12403139"
+                },
+                {
+                  "key": "stock",
+                  "value": "20",
+                  "type": "text",
+                  "uuid": "24a66598-29d7-4c58-b2b3-c7f7cc41d310"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:3000/api/categories/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "categories",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CREATE NEW CATEGORY",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Hogar",
+                  "type": "text",
+                  "uuid": "d1c0a12f-ccb7-4a94-bd8e-84ffd4154126"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:3000/api/categories",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PROFILES",
+      "item": [
+        {
+          "name": "UPDATE USERNAME",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "username",
+                  "value": "pedro_soto",
+                  "type": "text",
+                  "uuid": "e60eb68d-20a1-4eb0-862a-b20c02d93e7d"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:3000/api/profiles/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "profiles",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET PROFILE BY ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/api/profiles/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "profiles",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET EXIST USERNAME",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/api/profiles/username/pedro.soto",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "profiles",
+                "username",
+                "pedro.soto"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "SALES",
+      "item": [
+        {
+          "name": "GET ALL SALES",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "productName",
+                  "value": "Sofa de 2 cuerpos",
+                  "type": "text",
+                  "uuid": "a2f6be65-ab39-4192-bfa4-8e6db5996099"
+                },
+                {
+                  "key": "description",
+                  "value": "Sofa de lino",
+                  "type": "text",
+                  "uuid": "787f4a3a-6acd-4a80-803f-3772028f6bc9"
+                },
+                {
+                  "key": "price",
+                  "value": "750000",
+                  "type": "text",
+                  "uuid": "43ca657a-3110-4b6c-89c0-9edd12403139"
+                },
+                {
+                  "key": "stock",
+                  "value": "25",
+                  "type": "text",
+                  "uuid": "24a66598-29d7-4c58-b2b3-c7f7cc41d310"
+                },
+                {
+                  "key": "categoryId",
+                  "value": "100",
+                  "type": "text",
+                  "uuid": "48e1c297-2cfe-4904-803d-0f4083865e27"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:3000/api/sales",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "sales"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET SALE BY ID",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "productName",
+                  "value": "Sofa de 2 cuerpos",
+                  "type": "text",
+                  "uuid": "a2f6be65-ab39-4192-bfa4-8e6db5996099"
+                },
+                {
+                  "key": "description",
+                  "value": "Sofa de lino",
+                  "type": "text",
+                  "uuid": "787f4a3a-6acd-4a80-803f-3772028f6bc9"
+                },
+                {
+                  "key": "price",
+                  "value": "750000",
+                  "type": "text",
+                  "uuid": "43ca657a-3110-4b6c-89c0-9edd12403139"
+                },
+                {
+                  "key": "stock",
+                  "value": "25",
+                  "type": "text",
+                  "uuid": "24a66598-29d7-4c58-b2b3-c7f7cc41d310"
+                },
+                {
+                  "key": "categoryId",
+                  "value": "100",
+                  "type": "text",
+                  "uuid": "48e1c297-2cfe-4904-803d-0f4083865e27"
+                }
+              ]
+            },
+            "url": {
+              "raw": "localhost:3000/api/sales/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "sales",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CREATE NEW SALE",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": 1,\r\n    \"cart\": [\r\n        {\"productId\": 1, \"quantity\": 1},\r\n        {\"productId\": 2, \"quantity\": 2}\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/api/sales",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "sales"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
