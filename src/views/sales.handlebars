@@ -1,0 +1,51 @@
+<div class="page-heading"><div><p class="eyebrow accent">Operación</p><h1
+        >Ventas</h1><p class="subtitle">Consulta el historial y registra nuevas
+            órdenes.</p></div></div>
+<div class="row g-4"><div class="col-12 col-xl-7"><div class="data-panel"><div
+                class="panel-toolbar"
+            ><h2>Historial</h2><input
+                    class="form-control search-input"
+                    data-filter="#salesTable"
+                    placeholder="Buscar venta..."
+                    type="search"
+                /></div><div class="table-responsive"><table
+                    class="table align-middle"
+                    id="salesTable"
+                ><thead><tr><th>ID</th><th>Cliente</th><th>Fecha</th><th
+                            >Total</th><th></th></tr></thead><tbody
+                        id="salesRows"
+                    ><tr><td colspan="5" class="loading">Cargando ventas...</td></tr></tbody></table></div></div></div><div
+        class="col-12 col-xl-5"
+    ><div class="data-panel sale-builder"><div class="panel-toolbar"><h2>Nueva
+                    venta</h2><span class="cart-count" id="cartCount">0
+                    artículos</span></div><form id="saleForm"><label>Cliente
+                    (ID)<input
+                        name="userId"
+                        type="number"
+                        min="1"
+                        class="form-control"
+                        required
+                    /></label><div class="sale-product-picker"><label
+                    >Producto<select
+                            id="saleProduct"
+                            class="form-select"
+                        ></select></label><label>Cantidad<input
+                            id="saleQuantity"
+                            type="number"
+                            min="1"
+                            value="1"
+                            class="form-control"
+                        /></label><button
+                        type="button"
+                        class="btn btn-light add-cart"
+                        id="addCart"
+                    >Añadir</button></div><div
+                    id="cartItems"
+                    class="cart-items"
+                ><p class="empty-state">Agrega productos al carrito.</p></div><div
+                    class="sale-total"
+                ><span>Total estimado</span><strong
+                        id="saleTotal"
+                    >$0</strong></div><button
+                    class="btn btn-dark w-100"
+                >Confirmar venta</button></form></div></div></div>

@@ -1,0 +1,65 @@
+<div class="page-heading"><div><p class="eyebrow accent">Catálogo</p><h1
+        >Productos</h1><p class="subtitle">Controla precios, categorías y
+            existencias.</p></div><button
+        class="btn btn-dark"
+        data-bs-toggle="modal"
+        data-bs-target="#productModal"
+    >+ Nuevo producto</button></div>
+<div class="data-panel"><div class="panel-toolbar"><h2>Inventario</h2><input
+            class="form-control search-input"
+            data-filter="#productsTable"
+            placeholder="Buscar producto..."
+            type="search"
+        /></div><div class="table-responsive"><table
+            class="table align-middle"
+            id="productsTable"
+        ><thead><tr><th>Producto</th><th>Categoría</th><th>Precio</th><th
+                    >Stock</th><th></th></tr></thead><tbody
+                id="productsRows"
+            ><tr><td colspan="5" class="loading">Cargando productos...</td></tr></tbody></table></div></div>
+<div class="modal fade" id="productModal" tabindex="-1"><div
+        class="modal-dialog modal-dialog-centered"
+    ><div class="modal-content"><div class="modal-header"><h2>Nuevo producto</h2><button
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                ></button></div><form id="productForm"><div
+                    class="modal-body row g-3"
+                ><div class="col-12"><label>Nombre<input
+                                name="name"
+                                class="form-control"
+                                required
+                            /></label></div><div class="col-12"><label
+                        >Descripción<textarea
+                                name="description"
+                                class="form-control"
+                                rows="2"
+                            ></textarea></label></div><div
+                        class="col-md-4"
+                    ><label>Precio<input
+                                name="price"
+                                type="number"
+                                min="0"
+                                step="0.01"
+                                class="form-control"
+                                required
+                            /></label></div><div class="col-md-4"><label
+                        >Stock<input
+                                name="stock"
+                                type="number"
+                                min="0"
+                                class="form-control"
+                                required
+                            /></label></div><div class="col-md-4"><label
+                        >Categoría<input
+                                name="categoryId"
+                                type="number"
+                                min="1"
+                                class="form-control"
+                            /></label></div></div><div
+                    class="modal-footer"
+                ><button
+                        type="button"
+                        class="btn btn-light"
+                        data-bs-dismiss="modal"
+                    >Cancelar</button><button class="btn btn-dark">Crear
+                        producto</button></div></form></div></div></div>
