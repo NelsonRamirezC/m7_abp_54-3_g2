@@ -1,16 +1,11 @@
+import "dotenv/config";
 import { Sequelize } from "sequelize";
 
-const database = process.env.PG_DATABASE;
-const username = process.env.PG_USER;
-const password = process.env.PG_PASSWORD;
-const host = process.env.PG_HOST;
-const dialect = process.env.PG_DIALECT;
-const port = process.env.PG_PORT;
+const databaseUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+const dialect = "postgres";
 
-const sequelize = new Sequelize(database, username, password, {
-    host,
+const connectionOptions = {
     dialect,
-    port,
     pool: {
         max: 10,
         min: 0,
@@ -18,6 +13,28 @@ const sequelize = new Sequelize(database, username, password, {
         idle: 10000,
     },
     logging: false,
-});
+};
+
+if (databaseUrl) {
+    connectionOptions.dialectOptions = {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false,
+        },
+    };
+}
+
+const sequelize = databaseUrl
+    ? new Sequelize(databaseUrl, connectionOptions)
+    : new Sequelize(
+          process.env.PG_DATABASE,
+          process.env.PG_USER,
+          process.env.PG_PASSWORD,
+          {
+              ...connectionOptions,
+              host: process.env.PG_HOST,
+              port: process.env.PG_PORT,
+          },
+      );
 
 export default sequelize;
