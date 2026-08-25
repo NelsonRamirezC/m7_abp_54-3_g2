@@ -5,6 +5,14 @@ import { Sequelize } from "sequelize";
 const databaseUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL;
 const dialect = "postgres";
 
+const normalizedDatabaseUrl = databaseUrl
+    ? (() => {
+          const url = new URL(databaseUrl);
+          url.searchParams.set("sslmode", "verify-full");
+          return url.toString();
+      })()
+    : null;
+
 const connectionOptions = {
     dialect,
     dialectModule: pg,
@@ -21,13 +29,13 @@ if (databaseUrl) {
     connectionOptions.dialectOptions = {
         ssl: {
             require: true,
-            rejectUnauthorized: false,
+            rejectUnauthorized: true,
         },
     };
 }
 
 const sequelize = databaseUrl
-    ? new Sequelize(databaseUrl, connectionOptions)
+    ? new Sequelize(normalizedDatabaseUrl, connectionOptions)
     : new Sequelize(
           process.env.PG_DATABASE,
           process.env.PG_USER,
