@@ -4,14 +4,14 @@ import Product from "../models/Product.model.js";
 // GET ALL PRODUCTS
 export const getAllProducts = async (req, res) => {
     try {
-
         const products = await Product.findAll({
             attributes: { exclude: ["createdAt", "updatedAt", "categoryId"] },
             include: [
                 {
                     model: Category,
-                }
-            ]
+                    as: "category",
+                },
+            ],
         });
 
         res.json({
@@ -57,7 +57,6 @@ export const getProductById = async (req, res) => {
 // CREATE NEW PRODUCT
 export const createProduct = async (req, res) => {
     try {
-
         let product = await Product.create(req.body);
 
         res.status(201).json({

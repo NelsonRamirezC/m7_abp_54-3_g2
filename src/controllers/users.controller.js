@@ -6,10 +6,13 @@ export const getAllUsers = async (req, res) => {
     try {
         const users = await User.findAll({
             attributes: { exclude: ["password"] },
-            include: [{
-                model: Profile,
-                attributes: ["username"]
-            }]
+            include: [
+                {
+                    model: Profile,
+                    as: "profile",
+                    attributes: ["username"],
+                },
+            ],
         });
 
         res.json({ users });
@@ -22,7 +25,7 @@ export const getAllUsers = async (req, res) => {
 export const getUserById = async (req, res) => {
     try {
         let { id } = req.params;
-        
+
         const user = await User.findByPk(id, {
             attributes: { exclude: ["password", "rut"] },
         });
@@ -36,14 +39,19 @@ export const getUserById = async (req, res) => {
     }
 };
 
-
 export const createUser = async (req, res) => {
-    const t = await sequelize.transaction(); 
+    const t = await sequelize.transaction();
     try {
+        let { firstName, lastName, rut, email, password, username } = req.body;
 
-        let { firstName, lastName, rut, email, password, username} = req.body;
-
-        if (!firstName || !lastName || !rut || !email || !password || !username) {
+        if (
+            !firstName ||
+            !lastName ||
+            !rut ||
+            !email ||
+            !password ||
+            !username
+        ) {
             await t.rollback();
             return res.status(400).json({
                 message:
@@ -51,15 +59,18 @@ export const createUser = async (req, res) => {
             });
         }
 
-        let user = await User.create({
-            firstName,
-            lastName,
-            rut,
-            email,
-            password,
-        }, { transaction: t });
+        let user = await User.create(
+            {
+                firstName,
+                lastName,
+                rut,
+                email,
+                password,
+            },
+            { transaction: t },
+        );
 
-        await Profile.create({id: user.id, username}, { transaction: t });
+        await Profile.create({ id: user.id, username }, { transaction: t });
 
         user = user.toJSON();
         delete user.password;
@@ -74,15 +85,16 @@ export const createUser = async (req, res) => {
     }
 };
 
-
 export const updateUser = async (req, res) => {
     try {
         let { id } = req.params;
 
         let user = await User.findByPk(id);
 
-        if(!user){
-            return res.status(404).json({message: "No existe ningún usuario con el id: "+id});
+        if (!user) {
+            return res
+                .status(404)
+                .json({ message: "No existe ningún usuario con el id: " + id });
         }
 
         await user.update(req.body);
@@ -90,7 +102,10 @@ export const updateUser = async (req, res) => {
         user = user.toJSON();
         delete user.password;
 
-        res.status(201).json({ message: "Usuario actualizado con éxito.", user });
+        res.status(201).json({
+            message: "Usuario actualizado con éxito.",
+            user,
+        });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: error.message });
@@ -100,16 +115,20 @@ export const updateUser = async (req, res) => {
 export const deleteUserById = async (req, res) => {
     try {
         let { id } = req.params;
-        
+
         const user = await User.findByPk(id);
 
-        if(!user){
-            return res.status(404).json({message: "No existe ningún usuario con id: "+ id});
+        if (!user) {
+            return res
+                .status(404)
+                .json({ message: "No existe ningún usuario con id: " + id });
         }
 
         await user.destroy();
 
-        res.json({ message: `Se eliminó de la BD al usuario ${user.firstName} ${user.lastName}.` });
+        res.json({
+            message: `Se eliminó de la BD al usuario ${user.firstName} ${user.lastName}.`,
+        });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: error.message });

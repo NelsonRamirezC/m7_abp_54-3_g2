@@ -8,6 +8,7 @@ import productsRoutes from "./routes/products.routes.js";
 import categoriesRoutes from "./routes/categories.routes.js";
 import salesRoutes from "./routes/sales.routes.js";
 import webRoutes from "./routes/web.routes.js";
+import "./models/index.js";
 
 const app = express();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

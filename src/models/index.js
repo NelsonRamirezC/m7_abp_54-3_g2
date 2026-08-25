@@ -18,40 +18,41 @@ fooInstance.createBar()
 */
 User.hasOne(Profile, {
     foreignKey: "id",
+    as: "profile",
     onDelete: "CASCADE",
-    onUpdate: "CASCADE"
+    onUpdate: "CASCADE",
 });
 
 //The possible choices are RESTRICT, CASCADE, NO ACTION, SET DEFAULT and SET NULL.
 
 Profile.belongsTo(User, {
-    foreignKey: "id"
+    foreignKey: "id",
+    as: "user",
 });
-
 
 //RELACIÓN 1 A MUCHOS
 //RELACIONAMOS EL MODELO PRODUCT CON CATEGORY
 Category.hasMany(Product, {
+    as: "products",
     onDelete: "SET NULL",
     onUpdate: "CASCADE",
 });
-Product.belongsTo(Category);
-
+Product.belongsTo(Category, {
+    as: "category",
+    foreignKey: "categoryId",
+});
 
 //RELACIÓN ENTRE SALE Y USER
 User.hasMany(Sale, {
     onDelete: "SET NULL",
     onUpdate: "CASCADE",
     as: "orders",
-    foreignKey: "userId"
+    foreignKey: "userId",
 });
 Sale.belongsTo(User, {
-    as:"customer",
-    foreignKey: "userId" 
+    as: "customer",
+    foreignKey: "userId",
 });
-
-
-
 
 //RELACIONES MUCHOS A MUCHOS
 // Product.belongsToMany(Sale, { through: "SaleDetails"});
@@ -59,22 +60,25 @@ Sale.belongsTo(User, {
 
 //RELACONES 1 A MUCHOS PATABLA DETALLE VENTAS
 Product.hasMany(SaleDetail, {
+    as: "saleDetails",
     onDelete: "SET NULL",
     onUpdate: "CASCADE",
 });
-SaleDetail.belongsTo(Product);
+SaleDetail.belongsTo(Product, {
+    as: "product",
+    foreignKey: "productId",
+});
 
 Sale.hasMany(SaleDetail, {
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
     as: "details",
-    foreignKey: "saleId"
+    foreignKey: "saleId",
 });
 SaleDetail.belongsTo(Sale, {
     as: "sale",
-    foreignKey: "saleId"
+    foreignKey: "saleId",
 });
-
 
 export default {
     User,
@@ -82,5 +86,5 @@ export default {
     Product,
     Category,
     Sale,
-    SaleDetail
-}
+    SaleDetail,
+};

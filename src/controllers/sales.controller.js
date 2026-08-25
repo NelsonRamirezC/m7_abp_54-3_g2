@@ -9,14 +9,14 @@ import { Op, literal } from "sequelize";
 export const getAllSales = async (req, res) => {
     try {
         const sales = await Sale.findAll({
-            attributes: { exclude: ["userId"]},
+            attributes: { exclude: ["userId"] },
             include: [
                 {
                     model: User,
                     as: "customer",
-                    attributes: ["id", "firstName", "lastName", "rut"]
-                }
-            ]
+                    attributes: ["id", "firstName", "lastName", "rut"],
+                },
+            ],
         });
 
         res.json({
@@ -42,14 +42,14 @@ export const getSaleById = async (req, res) => {
                 {
                     model: User,
                     as: "customer",
-                    attributes: ["id", "firstName", "lastName", "rut"]
+                    attributes: ["id", "firstName", "lastName", "rut"],
                 },
                 {
                     model: SaleDetail,
                     as: "details",
-                    attributes: {exclude: ["saleId"]}
-                }
-            ]
+                    attributes: { exclude: ["saleId"] },
+                },
+            ],
         });
 
         if (!sale) {
@@ -158,7 +158,6 @@ export const getSaleById = async (req, res) => {
 //     }
 // };
 
-
 export const createSale = async (req, res) => {
     const t = await sequelize.transaction();
     try {
@@ -168,7 +167,8 @@ export const createSale = async (req, res) => {
             await t.rollback();
             return res.status(400).json({
                 status: "fail",
-                message: "No se proporcionan los campos requeridos o con el formato correcto.",
+                message:
+                    "No se proporcionan los campos requeridos o con el formato correcto.",
             });
         }
 
@@ -180,10 +180,14 @@ export const createSale = async (req, res) => {
                 await t.rollback();
                 return res.status(400).json({
                     status: "fail",
-                    message: "Cada artículo debe tener un 'productId' y una 'quantity' mayor a 0.",
+                    message:
+                        "Cada artículo debe tener un 'productId' y una 'quantity' mayor a 0.",
                 });
             }
-            cartMap.set(item.productId, (cartMap.get(item.productId) || 0) + item.quantity);
+            cartMap.set(
+                item.productId,
+                (cartMap.get(item.productId) || 0) + item.quantity,
+            );
         }
 
         // 2. CONSULTA EN LOTE CON BLOQUEO PESIMISTA (1 sola query)
@@ -229,7 +233,7 @@ export const createSale = async (req, res) => {
                 productName: product.name,
                 quantity: requestedQty,
                 price: price,
-                subtotal: price * requestedQty
+                subtotal: price * requestedQty,
             });
 
             // Expresión SQL CASE para actualizar stock por lote
@@ -243,13 +247,13 @@ export const createSale = async (req, res) => {
             {
                 where: { id: { [Op.in]: Array.from(cartMap.keys()) } },
                 transaction: t,
-            }
+            },
         );
 
         // 5. CREAR VENTA CABECERA (1 sola query INSERT)
         const sale = await Sale.create(
             { userId, total: Number(total.toFixed(2)) },
-            { transaction: t }
+            { transaction: t },
         );
 
         // 6. CREAR DETALLES DE VENTA EN LOTE (1 sola query INSERT)
