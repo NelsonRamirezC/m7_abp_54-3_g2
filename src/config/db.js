@@ -1,4 +1,5 @@
 import "dotenv/config";
+import pg from "pg";
 import { Sequelize } from "sequelize";
 
 const databaseUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL;
@@ -6,6 +7,7 @@ const dialect = "postgres";
 
 const connectionOptions = {
     dialect,
+    dialectModule: pg,
     pool: {
         max: 10,
         min: 0,
